@@ -2,7 +2,7 @@
 // starwars API
 
 const request = require('request');
-const FILMID = process.argv[2];
+const MOVIEID = process.argv[2];
 
 // Request URL
 const URL_BASE = 'https://swapi-api.hbtn.io/api/films';
@@ -21,12 +21,12 @@ function doRequest (url) {
 
 // Usage:
 
-async function main (filmID) {
-  const res = await doRequest(`${URL_BASE}/${filmID}`);
+async function main (movieID) {
+  const res = await doRequest(`${URL_BASE}/${movieID}`);
   for (const e of res.characters) {
     const pj = await doRequest(e);
     console.log(pj.name);
   }
 }
 
-main(FILMID);
+main(MOVIEID);
